@@ -210,7 +210,7 @@ const Employee = () => {
         if (error) {
             try {
                 let payload = { ...rows[index] }
-                payload.emp_id = (rows[rows?.length -2].emp_id + 1)
+                payload.emp_id = (rows[rows?.length -2]?.emp_id + 1) || 1
                 const response = await axios.post('http://localhost:8080/createEmployee', payload);
                 if (response?.data?.status === "success") {
                     alertBox("success", "inserted New Employee ")
